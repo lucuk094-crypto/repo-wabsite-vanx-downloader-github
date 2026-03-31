@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unggah Apa Saja</title>
+</head>
+<body>
+  <button id="upload_widget">Unggah file</button>
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
+  <script>
+    var myWidget = cloudinary.createUploadWidget({
+      cloudName: 'cloud_name',
+      uploadPreset: 'preset1'
+    }, (error, result) => {
+      if (result && result.event === "success") {
+        console.log(result.info);
+      }
+    });
+    document.getElementById("upload_widget").addEventListener("click", () => myWidget.open());
+  </script>
+</body>
+</html>
